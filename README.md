@@ -8,7 +8,7 @@ This semester we will be using Github to host datasets and assignment notebooks 
 1. Google Drive Backup and Sync (So that you can access your Google Drive on your computer)
 
 ## Installing GitHub Desktop
-Navigate to the `Clone` button on the righthand side of this screen and click `Download GitHub Desktop`. You will be taken to another screen where you can download and install the application.
+Navigate to the `Code` button on the righthand side of this screen and click `Download GitHub Desktop`. You will be taken to another screen where you can download and install the application.
 
 ## Installing Google Drive Backup and Sync
 Navigate to [Google's website](https://www.google.com/drive/download/) and download and install the Google Drive Backup and Sync Application. You should also be using your Dartmouth Account for this as it has unlimited storage in case we play around with some larger datasets.
