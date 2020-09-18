@@ -22,8 +22,17 @@ Now that we have GitHub Desktop and Google Drive Backup and Sync installed, we'l
 1. Choose your Google Drive Folder as your Local Path (Very Important!). I also like to have a folder of my Git repos something like 'Google Drive/git/'
 1. Then click Clone. Your're done with the hardest part!
 
+# Save a Google Drive copy of the code skeleton to your Colab Notebooks Folder.
+We want to make things as easy as possible as well as making sure your homework code is not accidently overwritten.
+1. On this GitHub repo, open your notebook skeleton of choice.
+1. Click open in Google Colab.
+1. Then click Save a copy in Drive.
+1. This will open up a new notebook and save a copy to MyDrive/Colab Notebooks. You can check the location by going to File > Locate in Drive.
+1. Now you have a copy of the skeleton in your Colab Notebook folder, seperated from your Git Repo.
+1. **This is important in case I have to update a skeleton for some reason it won't accidently overwrite work that you have already done.**
+
 # Accessing Everything From Google Colab
-Now that we have everything loaded up in Google Drive accessing Colab is a breeze.
+Now that we have everything loaded up in Google Drive accessing Colab is a breeze. **Make sure you've saved a notebook copy as stated above.**
 1. Navigate to [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
 1. If you're new, maybe look at the intro notebook to get yourself familiar.
 1. If you're not signed in, make sure to sign into your appropriate Google Account.
