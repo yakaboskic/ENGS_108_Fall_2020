@@ -16,7 +16,7 @@ def makeClustersDataset(n_samples, n_features, centers, filename):
             )
 
     X_train_valid, X_test = train_test_split(X, test_size=.2)
-    X_train, X_valid = train_test_split(X, test_size=.1)
+    X_train, X_valid = train_test_split(X_train_valid, test_size=.1)
 
     with open(filename, 'wb') as f_:
         pickle.dump(obj=(X_train, X_valid, X_test), file=f_)
@@ -33,5 +33,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     X_train, X_valid, X_test = makeClustersDataset(args.s, args.p, args.c, args.f)
+    print('Sizes:\nTrain: {},\nValid: {},\nTest: {}'.format(X_train.shape, X_valid.shape, X_test.shape))
     plt.scatter(X_train[:,0], X_train[:,1])
     plt.show()
