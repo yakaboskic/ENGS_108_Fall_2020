@@ -1,4 +1,6 @@
 from sklearn.datasets import make_blobs
+from sklearn.model_selection import train_test_split
+
 import pickle
 import argparse
 import matplotlib.pyplot as plt
@@ -13,10 +15,13 @@ def makeClustersDataset(n_samples, n_features, centers, filename):
             cluster_std=[random.random() for _ in range(centers)],
             )
 
-    with open(filename, 'wb') as f_:
-        pickle.dump(obj=X, file=f_)
+    X_train_valid, X_test = train_test_split(X, test_size=.2)
+    X_train, X_valid = train_test_split(X, test_size=.1)
 
-    return X
+    with open(filename, 'wb') as f_:
+        pickle.dump(obj=(X_train, X_valid, X_test), file=f_)
+
+    return (X_train, X_valid, X_test)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -27,6 +32,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    X = makeClustersDataset(args.s, args.p, args.c, args.f)
-    plt.scatter(X[:,0], X[:,1])
+    X_train, X_valid, X_test = makeClustersDataset(args.s, args.p, args.c, args.f)
+    plt.scatter(X_train[:,0], X_train[:,1])
     plt.show()
