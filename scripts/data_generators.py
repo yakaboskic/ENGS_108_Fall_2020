@@ -1,4 +1,4 @@
-from sklearn.datasets import make_blobs, make_classification
+from sklearn.datasets import make_blobs, make_classification, make_circles
 from sklearn.model_selection import train_test_split
 import pickle
 import argparse
@@ -36,13 +36,24 @@ def makeExplosionsEarthquakeDataset(n_samples, n_features, split=True, filename=
 
     return data
 
+def makeCirclesDataset(n_samples, noise=10, filename='circles.pk'):
+    X, y = make_circles(
+            n_samples=n_samples,
+            noise=noise,
+            factor=0,
+            )
+    with open(filename, 'wb') as f_:
+        pickle.dump((X, y), f_)
+    return X, y
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', type=str, help='Dataset to generate. Options: "synth", "explosions".'), 
+    parser.add_argument('-d', type=str, help='Dataset to generate. Options: "synth", "explosions".')
     parser.add_argument('-s', default=100, type=int, help='Number of samples to generate')
-    parser.add_argument('-p', default=2, type=int, help='Number of features')
+    parser.add_argument('--p', default=2, type=int, help='Number of features')
     parser.add_argument('--f', default=None, type=str, help='Filename to save.')
     parser.add_argument('--c', default=20, type=int, help='Number of centers.')
+    parser.add_argument('--n', default=None, type=float, help='Noise.')
 
     args = parser.parse_args()
 
@@ -50,5 +61,7 @@ if __name__ == '__main__':
         X = makeClustersDataset(args.s, args.p, args.c, args.f)
     elif args.d == 'explosions':
         train, _, _ = makeExplosionsEarthquakeDataset(args.s, args.p)
+    elif args.d == 'circles':
+        X, y = makeCirclesDataset(args.s, args.n)
     plt.scatter(X[:,0], X[:,1])
     plt.show()
